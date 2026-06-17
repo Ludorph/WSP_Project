@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="MiniRepoTracker_Lite.vcxproj" Id="62d5f05e-d205-4b33-909b-89e8eae8b501" />
+</Solution>

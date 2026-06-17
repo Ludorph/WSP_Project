@@ -12,6 +12,7 @@ GUI는 채점 항목에 포함되지 않으므로 사용하지 않았고, 콘솔
 | 폴더 | 역할 |
 | --- | --- |
 | `MiniRepoTracker` | 실제 제출용 프로그램 소스, Visual Studio 프로젝트 파일, 실행 파일이 들어 있는 메인 프로젝트 폴더입니다. |
+| `MiniRepoTracker_Lite` | 학부생 수준에 맞춰 기능과 코드량을 줄인 간소화 버전입니다. 디렉터리 생성, 파일 목록 확인, 스냅샷 저장, 상태 비교 기능을 `SimpleRepo.h`, `SimpleRepo.cpp`, `main.cpp` 구조로 분리했습니다. |
 | `MiniRepoTracker_TestRepo` | MiniRepo Tracker 기능을 테스트하기 위한 샘플 리포지터리 폴더입니다. 파일 추가, 수정, 삭제, 스냅샷 저장, 상태 비교, 실시간 감시를 시연할 때 사용합니다. |
 
 `MiniRepoTracker_TestRepo`는 프로그램의 기능 확인을 위한 테스트 공간입니다.
@@ -130,12 +131,13 @@ Character Set: Unicode
 1. 프로그램을 실행합니다.
 2. `Select/Create repository`를 선택합니다.
 3. 예시 경로로 `C:\Users\Ludorph\Documents\WSP_Project\MiniRepoTracker_TestRepo`를 입력합니다.
-4. `List files`로 파일 목록을 확인합니다.
-5. `Save snapshot`으로 현재 상태를 저장합니다.
-6. `MiniRepoTracker_TestRepo` 안의 파일을 수정하거나 새 파일을 추가하거나 기존 파일을 삭제합니다.
-7. `Check status`로 변경사항을 확인합니다.
-8. `Start realtime watch`를 실행한 뒤 탐색기에서 `MiniRepoTracker_TestRepo` 안의 파일을 변경합니다.
-9. `Show change log`로 기록된 변경 로그를 확인합니다.
+4. Lite 버전에서는 `Create directory`로 `aaa` 같은 하위 폴더를 생성할 수 있습니다.
+5. `List files`로 파일 목록을 확인합니다.
+6. `Save snapshot`으로 현재 상태를 저장합니다.
+7. `MiniRepoTracker_TestRepo` 안의 파일을 수정하거나 새 파일을 추가하거나 기존 파일을 삭제합니다.
+8. `Check status`로 변경사항을 확인합니다.
+9. 기본 버전에서는 `Start realtime watch`를 실행한 뒤 탐색기에서 `MiniRepoTracker_TestRepo` 안의 파일을 변경합니다.
+10. 기본 버전에서는 `Show change log`로 기록된 변경 로그를 확인합니다.
 
 ## 프로젝트 요약
 
