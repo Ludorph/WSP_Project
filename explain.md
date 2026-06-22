@@ -971,7 +971,7 @@ switch (menu)
 예:
 
 ```text
-C:\Users\Ludorph\Documents\WSP_Project\MiniRepoTracker_TestRepo
+C:\Users\Ludorph\Documents\WSP_Project\DemoRepo
 ```
 
 추천 시연 순서:
