@@ -344,6 +344,13 @@ bool SimpleRepo::ReadTextFile(const std::wstring& path, std::wstring& text)
         return false;
     }
 
+    if ((fileSize.QuadPart % sizeof(wchar_t)) != 0)
+    {
+        std::wcout << L"Snapshot file format is invalid.\n";
+        CloseHandle(hFile);
+        return false;
+    }
+
     std::vector<wchar_t> buffer(static_cast<size_t>(fileSize.QuadPart / sizeof(wchar_t)) + 1);
 
     DWORD readSize = 0;
@@ -378,21 +385,30 @@ bool SimpleRepo::LoadSnapshot(std::vector<FileInfo>& files)
             continue;
 
         size_t p1 = line.find(L'|');
-        size_t p2 = line.find(L'|', p1 + 1);
-        size_t p3 = line.find(L'|', p2 + 1);
-
-        if (p1 == std::wstring::npos ||
-            p2 == std::wstring::npos ||
-            p3 == std::wstring::npos)
-        {
+        if (p1 == std::wstring::npos)
             continue;
-        }
+
+        size_t p2 = line.find(L'|', p1 + 1);
+        if (p2 == std::wstring::npos)
+            continue;
+
+        size_t p3 = line.find(L'|', p2 + 1);
+        if (p3 == std::wstring::npos)
+            continue;
 
         FileInfo info = { };
-        info.name = line.substr(0, p1);
-        info.size = std::stoull(line.substr(p1 + 1, p2 - p1 - 1));
-        info.writeTime.dwLowDateTime = static_cast<DWORD>(std::stoul(line.substr(p2 + 1, p3 - p2 - 1)));
-        info.writeTime.dwHighDateTime = static_cast<DWORD>(std::stoul(line.substr(p3 + 1)));
+        try
+        {
+            info.name = line.substr(0, p1);
+            info.size = std::stoull(line.substr(p1 + 1, p2 - p1 - 1));
+            info.writeTime.dwLowDateTime = static_cast<DWORD>(std::stoul(line.substr(p2 + 1, p3 - p2 - 1)));
+            info.writeTime.dwHighDateTime = static_cast<DWORD>(std::stoul(line.substr(p3 + 1)));
+        }
+        catch (...)
+        {
+            std::wcout << L"Invalid snapshot line skipped.\n";
+            continue;
+        }
 
         files.push_back(info);
     }
