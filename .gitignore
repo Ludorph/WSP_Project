@@ -1,3 +1,10 @@
 2026_wsp
 2026_wsp/.vs/
 *.ipch
+.vs/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb

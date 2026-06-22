@@ -10,6 +10,7 @@ GUI는 채점 항목에 포함되지 않으므로 사용하지 않았고, 콘솔
 | 경로 | 역할 |
 | --- | --- |
 | `MiniRepoTracker_Lite` | 제출용 메인 프로젝트 폴더입니다. `SimpleRepo.h`, `SimpleRepo.cpp`, `main.cpp`로 구성되어 있습니다. |
+| `MiniRepoTracker_Lite2` | 같은 기능을 수업 예제 코드 스타일에 더 가깝게 다시 작성한 버전입니다. `WCHAR` 배열, `HANDLE`, `DWORD`, 고정 배열, `printf/wprintf`, `ReadFile/WriteFile` 중심으로 구성했습니다. |
 | `2026_wsp` | 수업 시간에 제공된 예제 코드 모음입니다. 프로젝트 설명과 구현 근거를 확인할 때 참고할 수 있습니다. |
 | `README.md` | 프로젝트 개요와 실행 방법을 설명하는 문서입니다. |
 | `explain.md` | 시연 대비용 상세 코드 설명 문서입니다. |
@@ -101,6 +102,12 @@ Visual Studio에서 다음 파일을 열어 빌드합니다.
 
 ```text
 MiniRepoTracker_Lite\MiniRepoTracker_Lite.slnx
+```
+
+수업 코드 스타일 버전을 시연하려면 다음 파일을 열어 빌드합니다.
+
+```text
+MiniRepoTracker_Lite2\MiniRepoTracker_Lite2.slnx
 ```
 
 권장 빌드 설정은 다음과 같습니다.
